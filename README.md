@@ -32,4 +32,8 @@ http://127.0.0.1:8000/api/v1/posts/{id}/
 http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/
 http://127.0.0.1:8000/api/v1/groups/
 http://127.0.0.1:8000/api/v1/follow/
+<<<<<<< HEAD
 ```
+=======
+```
+>>>>>>> 1d77337 (Created Api_Yatube)
