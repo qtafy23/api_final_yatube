@@ -22,7 +22,7 @@ class Base64ImageField(serializers.ImageField):
             data = ContentFile(base64.b64decode(imgstr), name='temp.' + ext)
 
         return super().to_internal_value(data)
-    
+
 
 class GroupSerializer(serializers.ModelSerializer):
 
@@ -40,7 +40,6 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
 
 
-
 class CommentSerializer(serializers.ModelSerializer):
     author = serializers.SlugRelatedField(
         read_only=True, slug_field='username'
@@ -56,7 +55,7 @@ class FollowSerializer(serializers.ModelSerializer):
     user = serializers.SlugRelatedField(
         read_only=True, slug_field='username',
         default=serializers.CurrentUserDefault()
-        )
+    )
     following = serializers.SlugRelatedField(
         queryset=User.objects.all(), slug_field='username',
     )
@@ -77,4 +76,3 @@ class FollowSerializer(serializers.ModelSerializer):
                 fields=('user', 'following'),
             )
         ]
-
