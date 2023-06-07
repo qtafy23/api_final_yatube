@@ -1,6 +1,5 @@
 from rest_framework import viewsets, permissions, mixins, filters
 from rest_framework.pagination import LimitOffsetPagination
-from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404
 from django.contrib.auth import get_user_model
 
@@ -20,7 +19,7 @@ class PostViewSet(viewsets.ModelViewSet):
     pagination_class = LimitOffsetPagination
     permission_classes = (IsAuthorOrReadOnlyPermission,
                           permissions.IsAuthenticatedOrReadOnly)
-    
+
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
 
